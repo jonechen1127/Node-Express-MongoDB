@@ -1,4 +1,4 @@
-# 简单搭建 Node-Express-MongoDB
+# 简单搭建 Node-Express-MongoDB 项目
 ### 如何执行
 ####  1、将项目克隆到本地，cd到Node-Express-MongoDB
 ```javascript
