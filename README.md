@@ -1,6 +1,6 @@
 # React-redux 实现的计数器
 ### 如何执行
-####  1、将项目克隆到本地，cd到React-redux-2
+####  1、将项目克隆到本地，cd到Node-Express-MongoDB
 ```javascript
 git clone git@github.com:jonechen1986/Node-Express-MongoDB.git
 cd Node-Express-MongoDB
@@ -17,4 +17,4 @@ node index.js
 ```javascript
 npm start
 ```
-#### 4、打开浏览器浏览 http://localhost:8100/
+#### 4、打开浏览器浏览 http://localhost:3000/
