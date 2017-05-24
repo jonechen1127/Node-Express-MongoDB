@@ -1,0 +1,18 @@
+html
+  head
+    title!= title
+    link(rel="stylesheet", href="//cdn.bootcss.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css")
+  body
+   div(class="container")
+    h1!=title
+    form(action="/homepage",method="post")
+        div(class="form-group")
+            label(for="userid") 用户名：
+            input(type="text",id="userid" class="form-control" name='userid' placeHolder='请输入用户名')
+        div(class="form-group")
+            label(for="password") 密码：
+            input(type="password",id="password" class="form-control" name="password" placeHolder='请输入密码')
+        div(class="form-group")
+            input(type="submit",value='确定',class="btn btn-default")
+   
+    
