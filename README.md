@@ -18,3 +18,5 @@ node index.js
 npm start
 ```
 #### 4、打开浏览器浏览 http://localhost:3000/
+### Tips:
+运行项目前请确保已开启了 mongodb 服务，否则，会报错！
