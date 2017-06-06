@@ -4,7 +4,7 @@ var app = express();
 var mongoose = require('mongoose');
 var user = require('./models/user').user;
 var bodyParser = require('body-parser');
-
+var PORT = process.env.PORT || '3000';
 mongoose.connect('mongodb://localhost/test');
 // 假设数据库没有数据，则创建一个，也可以通过命令行来创建；
 // var User = new user({userid: 'admin', password: 123456})
@@ -29,8 +29,7 @@ app.post('/homepage', (req, res) => {
         password: req.body.password
     };
     (function () {
-        user.count(query_doc, function (err, doc) {
-            console.log(doc)
+        user.count(query_doc, (err, doc) => {
             if (doc == 1) {
                 console.log(query_doc.userid + ": login success in " + new Date());
                 res.render('homepage', {title: 'homepage'});
@@ -43,6 +42,6 @@ app.post('/homepage', (req, res) => {
 })
 var server = http.createServer(app);
 
-server.listen(3000, () => {
-    console.log('服务已启动')
+server.listen(PORT, () => {
+    console.log('Server runing at port:' + PORT + '.')
 })
