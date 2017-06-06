@@ -5,7 +5,12 @@ var mongoose = require('mongoose');
 var user = require('./models/user').user;
 var bodyParser = require('body-parser');
 
-mongoose.connect('mongodb://localhost/express-demo');
+mongoose.connect('mongodb://localhost/test');
+// 假设数据库没有数据，则创建一个，也可以通过命令行来创建；
+// var User = new user({userid: 'admin', password: 123456})
+// User.save(function (err, doc) {
+//     err ? console.log(err): console.log(doc)
+// })
 app.set('view engine', 'jade');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -24,13 +29,14 @@ app.post('/homepage', (req, res) => {
         password: req.body.password
     };
     (function () {
-        user.count(query_doc, (err, doc) => {
+        user.count(query_doc, function (err, doc) {
+            console.log(doc)
             if (doc == 1) {
                 console.log(query_doc.userid + ": login success in " + new Date());
                 res.render('homepage', {title: 'homepage'});
             } else {
                 console.log(query_doc.userid + ": login failed in " + new Date());
-                res.render('error', {title: 'login error'})
+                res.redirect('/');
             }
         });
     })(query_doc);
